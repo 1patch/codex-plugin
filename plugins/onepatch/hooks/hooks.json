@@ -1,0 +1,14 @@
+{
+	"hooks": {
+		"UserPromptSubmit": [
+			{
+				"hooks": [
+					{
+						"type": "command",
+						"command": "command -v onepatch >/dev/null && onepatch hook user-prompt-submit --agent codex || true"
+					}
+				]
+			}
+		]
+	}
+}

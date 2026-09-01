@@ -1,0 +1,9 @@
+{
+	"name": "onepatch",
+	"plugins": [
+		{
+			"name": "onepatch",
+			"source": { "source": "local", "path": "./plugins/onepatch" }
+		}
+	]
+}

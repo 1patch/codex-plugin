@@ -1,0 +1,7 @@
+{
+	"name": "onepatch",
+	"version": "0.1.0",
+	"description": "OnePatch — the AI SRE. Query your telemetry, read and drive incidents, and delegate to the OnePatch agent from Codex.",
+	"skills": "./skills",
+	"hooks": "./hooks/hooks.json"
+}
