@@ -1,7 +1,48 @@
 {
 	"name": "onepatch",
-	"version": "0.1.0",
-	"description": "OnePatch — the AI SRE. Query your telemetry, read and drive incidents, and delegate to the OnePatch agent from Codex.",
-	"skills": "./skills",
-	"hooks": "./hooks/hooks.json"
+	"version": "0.2.0",
+	"description": "Investigate production errors and latency, query OpenTelemetry data, and follow incidents with the OnePatch AI SRE.",
+	"author": {
+		"name": "OnePatch",
+		"url": "https://onepatch.dev"
+	},
+	"homepage": "https://docs.onepatch.dev/mcp-server",
+	"repository": "https://github.com/1patch/codex-plugin",
+	"license": "MIT",
+	"keywords": [
+		"onepatch",
+		"observability",
+		"sre",
+		"incidents",
+		"opentelemetry",
+		"logs",
+		"metrics",
+		"traces",
+		"debugging",
+		"mcp"
+	],
+	"skills": "./skills/",
+	"interface": {
+		"displayName": "OnePatch",
+		"shortDescription": "Investigate production with your AI SRE",
+		"longDescription": "Connect Codex to your OnePatch workspace to investigate production errors and latency, query traces, logs, and metrics with SQL, and read incident reports. Ask the OnePatch AI SRE to investigate an issue or continue an existing investigation with follow-up context. Requires a OnePatch account and a workspace; sign in through OAuth to connect your organization's data.",
+		"developerName": "OnePatch",
+		"category": "Developer Tools",
+		"capabilities": [
+			"Read",
+			"Write"
+		],
+		"websiteURL": "https://onepatch.dev",
+		"privacyPolicyURL": "https://onepatch.dev/privacy",
+		"termsOfServiceURL": "https://onepatch.dev/terms",
+		"brandColor": "#F0554B",
+		"composerIcon": "./assets/icon.svg",
+		"logo": "./assets/icon.svg",
+		"defaultPrompt": [
+			"What production incidents need my attention?",
+			"Find the top errors in the last hour.",
+			"Ask OnePatch to investigate checkout latency."
+		]
+	},
+	"mcpServers": "./.mcp.json"
 }

@@ -8,10 +8,11 @@ description: Use when the user asks about production behavior, telemetry, errors
 OnePatch ingests the org's OpenTelemetry data and runs an always-on SRE agent
 over it. Two ways in, same tools either way:
 
-- **MCP server** (`onepatch`, remote): tools come from the `onepatch` MCP
-  server. If it isn't configured, run `onepatch install codex` (or add
-  `[mcp_servers.onepatch]` with `url = "https://app.onepatch.dev/mcp"` to
-  `~/.codex/config.toml`); sign in with `codex mcp login onepatch`.
+- **MCP server** (`onepatch`, bundled with this plugin): use its available
+  tools directly. Connect your OnePatch account through the plugin's sign-in
+  prompt. If tools are missing, enable the plugin and start a new Codex task;
+  if authentication fails, reconnect the OnePatch account in plugin settings.
+  A manually configured server can also sign in with `codex mcp login onepatch`.
 - **CLI**: `npm install -g onepatch`, then `onepatch login` (device flow).
   The CLI keeps itself up to date automatically.
 

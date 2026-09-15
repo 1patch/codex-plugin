@@ -3,7 +3,15 @@
 	"plugins": [
 		{
 			"name": "onepatch",
-			"source": { "source": "local", "path": "./plugins/onepatch" }
+			"source": {
+				"source": "local",
+				"path": "./plugins/onepatch"
+			},
+			"policy": {
+				"installation": "AVAILABLE",
+				"authentication": "ON_INSTALL"
+			},
+			"category": "Developer Tools"
 		}
 	]
 }
