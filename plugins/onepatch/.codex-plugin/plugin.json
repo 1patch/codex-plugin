@@ -1,6 +1,6 @@
 {
 	"name": "onepatch",
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"description": "Investigate production errors and latency, query OpenTelemetry data, and follow incidents with the OnePatch AI SRE.",
 	"author": {
 		"name": "OnePatch",

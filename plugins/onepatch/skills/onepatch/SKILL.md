@@ -29,9 +29,11 @@ over it. Two ways in, same tools either way:
 
 ## Querying telemetry
 
-Standard ClickHouse SQL. Spans/logs/metrics live in the `otel` database; always
-bound queries in time (`WHERE start_time > now() - INTERVAL 1 HOUR`) and limit
-rows. Explore schema first with `DESCRIBE otel.spans` when unsure.
+Standard ClickHouse SQL. Use the schema in the `query_otel` tool description.
+Always bound spans by `start_ts` and logs, metrics, and histograms by `ts`
+(for example, `WHERE start_ts >= now() - INTERVAL 1 HOUR`). Limit result rows.
+For dated demo data, use the sample's explicit UTC window instead of the last
+hour. Report empty results honestly; never invent observations or causes.
 
 ## Delegating vs. querying
 
