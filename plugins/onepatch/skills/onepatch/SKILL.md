@@ -41,3 +41,37 @@ Run your own SQL for quick lookups. For open-ended investigation ("why is
 checkout slow since the deploy?"), `start_chat` hands it to the OnePatch agent,
 which has the org's full workspace, monitors, and history; poll with
 `read_chat` or just give the user the chat link it returns.
+
+
+## Discovering capabilities and workflows
+
+Check `onepatch <command> --help` for the installed version's exact syntax.
+With CLI 0.8 or later, use `onepatch context --json` for a compact workspace
+snapshot, `onepatch tools list` for the live tool index, and
+`onepatch tools describe <name>` for one schema and its side effects. Invoke
+unwrapped server tools with `onepatch tools run <name> --input '<JSON object>'`.
+Read-only discovery does not authorize write operations.
+
+Use `onepatch skills list` and `onepatch skills read <id>` to load public
+workspace guidance or one of the bundled workflows: `onepatch-investigate`,
+`onepatch-deploy-check`, and `onepatch-instrumentation-check`. Load only the
+workflow relevant to the task. `onepatch skills install` installs the three
+bundled workflows into ~/.agents/skills; it does not overwrite edited skills.
+The corresponding MCP tools are `get_context`, `list_skills`, and `read_skill`.
+
+## Waiting for investigations
+
+`onepatch chats start "<investigation request>" --wait --json` waits for the
+specific submitted message. Keep the returned chatId/sendId and resume after
+a timeout with `onepatch chats wait <chatId> --send-id <sendId> --json`; do not
+resend the request. `--timeout` is in seconds (default 300, maximum 1800).
+Accepted, pending and running are not completed work. `needs_input` requires
+an answer. Exit codes: 0 complete, 1 failure, 2 needs input, 3 timeout,
+130 interrupted. Native incident coordinator conversations support read and
+reply; follow their incident view rather than waiting on an SDK turn.
+
+CLI 0.8 `--json` emits `{schemaVersion:1,data:...}` when domain data is
+available, or `{schemaVersion:1,data:null,content:[...]}` for older tools.
+`--raw-json` preserves the old MCP content-block format. MCP clients can read
+structuredContent directly, including start/reply receipts and read_chat's
+response for a specified sendId.
